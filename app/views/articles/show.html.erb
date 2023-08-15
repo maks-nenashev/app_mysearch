@@ -1,0 +1,62 @@
+<br>
+<!3 Wywodim bazu po ID>
+<h3>Thanks You!</h3>
+<h4>Article has been created!!!</h4>
+
+ <p> Область: <!%= @article.local%></p>
+ 
+ <h4><%= @article.title %></h4>
+ 
+ <%= image_tag @article.avatar_url(:thumb), class: 'img-thumbnail thumb'if @article.avatar? %>
+ 
+ <p class="lead my-3"><%= @article.text %></p>
+  
+             
+             <! Podkluchenie time pod soobzheniem!>
+  <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
+  <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  </time>  
+
+<!/////////////////////////////////////////////////////////////////////////////////////////>
+  <hr class="my-3">
+<h4> Write youre Comment </h4>
+  
+                      <!Dobawil Comment>
+ <%= form_with model: [@article, @comment] do |f| %>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :body %>
+    </div>
+
+    <div class="col-sm-10">                     <! Walidacija CSS ---required: true, minlength:2,>
+      <%= f.text_area :body, class: 'textarea is-focused', required: true, minlength:2%>
+    </div>
+  </div>
+
+  <%= f.submit "Submit comment!", class: 'button is-primary is-rounded' %>
+<% end %>
+<!/////////////////////////////////////////////////////////////////////////////////////>
+<h4 class="mt-5">Comment!</h4>
+
+<% @comments.each do |comment| %>
+  <article class="mb-3 card" id="comment-<%= comment.id %>">
+      <div class="card-body">
+           <! Podkluchenie time pod soobzheniem!>
+  <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
+  <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  </time>  
+         
+         <section class="card-text">
+                  <p>
+                    <%= comment.body %>
+                  </p>
+         </section>
+              
+ 
+ <%= link_to  "Edit Comment", edit_article_comment_path(@article,comment),class: "button is-success is-light"%> 
+ <%= link_to 'Delete', article_comment_path(@article, comment), class: 'button is-danger is-light',
+      data: {method: :delete, confirm: "Are you sure?"} %>
+   </div>
+ </article>
+<%end%>

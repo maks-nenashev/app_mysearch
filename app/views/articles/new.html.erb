@@ -1,0 +1,60 @@
+<%= form_for :article, url: articles_path, data: {turbo:false}  do |f| %>
+
+
+<!%= render 'shared/errors', object: @article %> <!Walidacija - papka shared/_errors>
+<!% if @article && @article.errors.full_messages.any?%> <!Prowerka! Esli estj ochybka to nepropustit>
+<!% end%>
+<br>
+<br>
+<div class="field has-addons">
+  <div class="control is-expanded">
+    <div class="select is-fullwidth">
+      <select name="country">
+        <option value="Argentina">Argentina</option>
+        <option value="Bolivia">Bolivia</option>
+        <option value="Brazil">Brazil</option>
+        <option value="Chile">Chile</option>
+        <option value="Colombia">Colombia</option>
+        <option value="Ecuador">Ecuador</option>
+        <option value="Guyana">Guyana</option>
+        <option value="Paraguay">Paraguay</option>
+        <option value="Peru">Peru</option>
+        <option value="Suriname">Suriname</option>
+        <option value="Uruguay">Uruguay</option>
+        <option value="Venezuela">Venezuela</option>
+      </select>
+    </div>
+  </div>
+  <div class="control">
+    <button type="submit" class="button is-primary">Choose</button>
+  </div>
+</div>
+
+<div class="mb-3 row">
+<div class="col-sm-2 col-form-label">  
+    <%= f.label :title %>
+</div>
+
+<div class="col-sm-10">          <! Walidacija CSS ---required: true, minlength:2,>
+    <%= f.text_field :title, placeholder: "Title", class: "input is-link"%>
+</div>
+</div>
+
+<div class="mb-3 row">
+<div class="col-sm-2 col-form-label">
+    <%= f.label :text %>
+</div>
+
+<div class="col-sm-10">     <! Walidacija CSS ---required: true, minlength:2,>
+    <%= f.text_area :text, placeholder: "Text", class: "textarea is-focused"%>
+</div>
+</div>
+
+<div class="col-sm-10">     
+    <%= f.file_field :avatar, class: "btn btn-outline-primary btn-sm"%>
+</div>
+  <br>
+  
+  <%= f.submit 'submit_article', class: "button is-primary is-rounded"%>
+
+<%end%>

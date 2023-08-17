@@ -2,40 +2,41 @@
 <br>
 <div class="tile is-ancestor">
   <div class="tile is-parent is-vertical ">
-     <article class="tile is-child notification is-success">
+     <article class="tile is-child notification is-warning">
       <div class="content">
         <p class="title">Люди</p>
         <p class="subtitle">With even more content</p>
         <figure class="image is-4by4">
-        <%= image_tag("ferrari.jpg",:size => "740x580") %>
+        <%= image_tag("piople.jpg",:size => "740x580", class: "button is-piople") %>
         <div class="content">
-          <!-- Content -->
+          <!-- Content --><!p class="subtitle"><!/p>
         </div>
       </div>
      </article>
     </div>
     
     <div class="tile is-parent is-vertical ">
-     <article class="tile is-child notification is-success">
+     <article class="tile is-child notification is-warning">
       <div class="content">
         <p class="title">Животные</p>
         <p class="subtitle">With even more content</p>
         <figure class="image is-4by4">
-          <%= image_tag("ferrari.jpg",:size => "740x580") %>
+          <%= image_tag("dag.jpg",:size => "740x580", class: "button is-dag") %>
         <div class="content">
-          <!-- Content --><p class="subtitle">With even more content</p>
+          <!-- Content --><!p class="subtitle"><!/p>
         </div>
       </div>
      </article>
     </div>
     
     <div class="tile is-parent is-vertical">
-     <article class="tile is-child notification is-success">
+     <article class="tile is-child notification is-warning">
       <div class="content">
         <p class="title">Вещи</p>
         <p class="subtitle">With even more content</p>
         <figure class="image is-4by4">
-        <%= image_tag("ferrari.jpg",:size => "740x580") %>
+        <%= image_tag("thing.jpg",:size => "740x580", class:"button is-thing")%>
+        <!%= link_to article_path(article),class: "button is-thing"%>
         <div class="content">
           <!-- Content -->
         </div>
@@ -46,14 +47,3 @@
 
 <br>
 <br>
-<section class="hero is-info">
-  <div class="hero-body">
-    <p class="title">
-      Info hero
-    </p>
-    <p class="subtitle">
-      Info subtitle
-    </p>
-  
-  </div>
-</section>

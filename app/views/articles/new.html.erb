@@ -6,28 +6,20 @@
 <!% end%>
 <br>
 <br>
-<div class="field has-addons">
-  <div class="control is-expanded">
-    <div class="select is-fullwidth">
-      <select name="country">
-        <option value="Argentina">Argentina</option>
-        <option value="Bolivia">Bolivia</option>
-        <option value="Brazil">Brazil</option>
-        <option value="Chile">Chile</option>
-        <option value="Colombia">Colombia</option>
-        <option value="Ecuador">Ecuador</option>
-        <option value="Guyana">Guyana</option>
-        <option value="Paraguay">Paraguay</option>
-        <option value="Peru">Peru</option>
-        <option value="Suriname">Suriname</option>
-        <option value="Uruguay">Uruguay</option>
-        <option value="Venezuela">Venezuela</option>
+<div class="field is-link">
+  <p class="control has-icons-left">
+    <span class="select">
+      <select>
+        <option selected>Область</option>
+        <option value="Киевская">Киевская</option>
+        <option value="Сумская">Сумская</option>
+        <option value="Черниговская">Черниговская</option>
       </select>
-    </div>
-  </div>
-  <div class="control">
-    <button type="submit" class="button is-primary">Choose</button>
-  </div>
+    </span>
+    <span class="icon is-small is-left">
+      <i class="fas fa-globe"></i>
+    </span>
+  </p>
 </div>
 
 <div class="mb-3 row">
@@ -50,11 +42,17 @@
 </div>
 </div>
 
+<br>
 <div class="col-sm-10">     
-    <%= f.file_field :avatar, class: "btn btn-outline-primary btn-sm"%>
+    <%= f.file_field :avatar, class: "button is-warning"%>
 </div>
-  <br>
+<br>
   
-  <%= f.submit 'submit_article', class: "button is-primary is-rounded"%>
+
+  <%= f.submit 'Submit article', class: "button is-primary is-rounded"%>
+  <%= link_to "Show all articles!",articles_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
 
 <%end%>
+
+<br>
+<br>

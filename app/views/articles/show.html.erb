@@ -16,6 +16,9 @@
   <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
   <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
   </time>  
+<%= link_to ('Edit'), edit_article_path(@article),class: "button is-success is-light"%> 
+<%= link_to ('Delete'), article_path(@article), data: {'turbo-method': :delete,'turbo-confirm': 
+     'Are you sure?'}, class:"button is-danger is-light"%>
 
 <!/////////////////////////////////////////////////////////////////////////////////////////>
   <hr class="my-3">
@@ -34,8 +37,11 @@
     </div>
   </div>
 
+ <br>
   <%= f.submit "Submit comment!", class: 'button is-primary is-rounded' %>
 <% end %>
+
+
 <!/////////////////////////////////////////////////////////////////////////////////////>
 <h4 class="mt-5">Comment!</h4>
 
@@ -60,3 +66,5 @@
    </div>
  </article>
 <%end%>
+<br>
+<br>

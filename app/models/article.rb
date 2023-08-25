@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+    include Commentable # Podkluczenie "Comment"
+    
     mount_uploader :avatar, AvatarUploader # Zagruzka Fotak
     
     validates :title, presence: true, length: {minimum: 2} #walidacija

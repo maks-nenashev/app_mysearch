@@ -21,11 +21,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_15_203121) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.integer "article_id", null: false
+    t.integer "commentable_type_id"
+    t.integer "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
+    t.index ["commentable_type_id"], name: "index_comments_on_commentable_type_id"
   end
 
-  add_foreign_key "comments", "articles"
 end

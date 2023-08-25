@@ -25,6 +25,10 @@
 <h4> Write youre Comment </h4>
   
                       <!Dobawil Comment>
+ <!%= tag.div class: "collapse #{'show' if is_current_comment}" , id: html_id do %> 
+  <!%= form_with model: [commentable,(is_current_comment ? comment : commentable.comments.build)],
+  
+  class: 'pt-3 border-top my-2' do |f| %>
  <%= form_with model: [@article, @comment] do |f| %>
 
   <div class="mb-3 row">
@@ -40,7 +44,7 @@
  <br>
   <%= f.submit "Submit comment!", class: 'button is-primary is-rounded' %>
 <% end %>
-
+<!%end%>
 
 <!/////////////////////////////////////////////////////////////////////////////////////>
 <h4 class="mt-5">Comment!</h4>

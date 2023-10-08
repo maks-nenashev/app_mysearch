@@ -2,6 +2,7 @@
 <h2 class="mb-4">List of articles!</h2>  <!# Wywod wsech zapisej!>
 <p>
 <%= link_to "New article", new_article_path,class: "button is-primary is-rounded" %>
+<!%= link_to "New article", new_article_path, class: "button big gray bi bi-pencil-square"%>
 </p>
 <% @articles.each do |article| %>
      <article class="card mt-3">

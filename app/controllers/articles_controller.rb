@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
     #@article = Article.find(params[:id]) # To чto hotim udalitь  :before_action :set_question! "Refactoring"
     @article.destroy
     flash[:success] = "Article deleted!"     #Window Podtwerzdenija
-    redirect_to article_path  #"perenaprowlenie"
+    redirect_to @article  #"perenaprowlenie"
   end
   
   #////////////////////////////////////////////////////////////////////////////////////

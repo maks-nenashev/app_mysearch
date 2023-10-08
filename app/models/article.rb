@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-    include Commentable # Podkluczenie "Comment"
+
     
     mount_uploader :avatar, AvatarUploader # Zagruzka Fotak
     

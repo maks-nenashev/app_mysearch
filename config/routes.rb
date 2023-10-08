@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 get '/' =>'home#index'   # Eto nuzno wsegda! 
 root to: "home#index"
 
-resources :comments do  #вложенный маршрут:
-     resources :articles #, except: %i[new show] # Wse marшруты нужны кроме [ new show]
+resources :articles do  #вложенный маршрут:
+     resources :comments #, except: %i[new show] # Wse marшруты нужны кроме [ new show]
 end #4 
   
   #get 'contacts' => 'contacts#new' only:[:create]

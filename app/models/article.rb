@@ -8,7 +8,7 @@ class Article < ApplicationRecord
 
     has_many :comments, as: :commentable # Podkluchenie "Comments" Rukami delaem
                                                  # has_many :comments, dependent: :nullify
-    has_many :comments, dependent:  :delete_all   # :destroy ---=Dla udalenija Comentarija wmeste s Article
+   # has_many :comments, dependent:  :delete_all   # :destroy ---=Dla udalenija Comentarija wmeste s Article
 
-
+    #belongs_to :local
 end

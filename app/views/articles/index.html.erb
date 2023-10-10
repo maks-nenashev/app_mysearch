@@ -11,7 +11,7 @@
   <%= article.title %>
   </h2>
   <p class="my-2">
-  <!%= image_tag article.avatar.url(:thumb), class: 'img-thumbnail thumb' if article.avatar? %>            
+  <%= image_tag article.avatar.url(:thumb), class: 'img-thumbnail thumb' if article.avatar? %>            
   </p>          
   <h4 class="my-2">
   <%= article.text %>

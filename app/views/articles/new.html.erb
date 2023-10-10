@@ -10,11 +10,12 @@
   <p class="control has-icons-left">
     <span class="select">
       <select>
-        <option selected>Область</option>
-        <option value="Киевская">Киевская</option>
-        <option value="Сумская">Сумская</option>
-        <option value="Черниговская">Черниговская</option>
-      </select>
+       
+        <!%= f.locals.each do |local|%>
+    <!option value="<!%= local.id %>"> <!%= local.title %><!/option>
+    <!% end %>
+    
+     </select>
     </span>
     <span class="icon is-small is-left">
       <i class="fas fa-globe"></i>

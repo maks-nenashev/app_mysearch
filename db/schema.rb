@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_11_000839) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_22_122928) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "text"
@@ -30,12 +30,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_000839) do
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
   end
 
-  create_table "locals", force: :cascade do |t|
-    t.string "alias"
+  create_table "senses", force: :cascade do |t|
     t.string "title"
+    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["alias"], name: "index_locals_on_alias", unique: true
   end
 
   create_table "things", force: :cascade do |t|

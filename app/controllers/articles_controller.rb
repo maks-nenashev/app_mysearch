@@ -7,16 +7,18 @@ class ArticlesController < ApplicationController
    end
     
    def show  # 3: Wywodim bazu po :ID
-     # @article = Article.find params[:id]    :before_action :set_question! "Refactoring"
+      @commentable = @article
+      @comment = Comment.new
+      # @article = Article.find params[:id]    :before_action :set_article! "Refactoring"
        #@comment = @commentable.comment.build created_at: :desc 
-       @comment = @article.comments.build       # Podkluchenie  "Commint"
-       @comments = @article.comments.order created_at: :desc  # Podkluchenie  "Commint"
+      # @comment = @article.comments.build       # Podkluchenie  "Commint"
+       #@comments = @article.comments.order created_at: :desc  # Podkluchenie  "Commint"
     end
       
   
    def new  # 1: создать - new (отобразить форму. GET)
        @article = Article.new  # Пустым оставлять тельзя!
-       @locals = Local.new
+       @locals = Local.all
       end
     
    def create # 2: create (отправить форму. POST)   
@@ -62,7 +64,7 @@ class ArticlesController < ApplicationController
       params.require(:article).permit(:title, :text, :local_id, :avatar)
    end
   
-    def set_article!  # :before_action :set_question! only[show destroy edit update] "Refactoring"
+    def set_article!  # :before_action :set_article! only[show destroy edit update] "Refactoring"
       @article = Article.find(params[:id])
    end
   

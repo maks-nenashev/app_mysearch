@@ -9,21 +9,18 @@ class ArticlesController < ApplicationController
    def show  # 3: Wywodim bazu po :ID
       @commentable = @article
       @comment = Comment.new
-      # @article = Article.find params[:id]    :before_action :set_article! "Refactoring"
-       #@comment = @commentable.comment.build created_at: :desc 
-      # @comment = @article.comments.build       # Podkluchenie  "Commint"
-       #@comments = @article.comments.order created_at: :desc  # Podkluchenie  "Commint"
-    end
+      # @article = Article.find params[:id]  :before_action :set_article! "Refactoring"
+     end
       
   
    def new  # 1: создать - new (отобразить форму. GET)
        @article = Article.new  # Пустым оставлять тельзя!
-       @locals = Local.all
+       #@locals = Local.all
       end
     
    def create # 2: create (отправить форму. POST)   
        @article = Article.new(article_params)
-       @locals = Local.new
+       #@locals = Local.new
        #@article = current_user.Article.new(article_params)
     if @article.valid?
        @article.save 
@@ -40,8 +37,7 @@ class ArticlesController < ApplicationController
    end
   
    def update #6  Wnosim izmenrnie w redaktirowanie
-      #@article = Article.find(params[:id])      :before_action :set_question! "Refactoring"
-  
+      #@article = Article.find(params[:id])      :before_action :set_article! "Refactoring"
     if @article.update(article_params) # Obnowlaem s nowymi parametromi
        redirect_to @article
        flash[:success] = "Article updated!" #Window Podtwerzdenija
@@ -51,7 +47,7 @@ class ArticlesController < ApplicationController
   end
   
   def destroy # Delite publikacij
-    #@article = Article.find(params[:id]) # To чto hotim udalitь  :before_action :set_question! "Refactoring"
+    #@article = Article.find(params[:id]) #:before_action :set_article! "Refactoring"
     @article.destroy
     flash[:success] = "Article deleted!"     #Window Podtwerzdenija
     redirect_to @article  #"perenaprowlenie"

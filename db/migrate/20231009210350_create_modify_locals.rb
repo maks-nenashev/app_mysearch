@@ -1,7 +1,7 @@
 class CreateModifyLocals < ActiveRecord::Migration[7.0]
   
   def change
-    add_index :locals, :alias, unique: true
+   add_index :locals, :alias, unique: true
       Local.create :alias => "cats", :title => "Котики"
       Local.create :alias =>"dogs", :title => "Собачки"
       Local.create :alias => "hamsters", :title => "Хомячки"
@@ -10,4 +10,7 @@ class CreateModifyLocals < ActiveRecord::Migration[7.0]
     
      
   end
+  
+
+
 end

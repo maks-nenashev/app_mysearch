@@ -10,10 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_09_210350) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_11_000839) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "text"
+    t.integer "created_by"
+    t.integer "local_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
@@ -34,6 +36,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_09_210350) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["alias"], name: "index_locals_on_alias", unique: true
+  end
+
+  create_table "things", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

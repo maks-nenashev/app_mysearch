@@ -5,19 +5,19 @@
 
  <p> Область: <!%= @article.local%></p>
  
- <h4><%= @article.title %></h4>
+ <h4><%= @thing.title %></h4>
  
- <%= image_tag @article.avatar_url(:thumb), class: 'img-thumbnail thumb'if @article.avatar? %>
+ <!%= image_tag @thing.avatar_url(:thumb), class: 'img-thumbnail thumb'if @thing.avatar? %>
  
- <p class="lead my-3"><%= @article.text %></p>
+ <p class="lead my-3"><%= @thing.text %></p>
   
              
              <! Podkluchenie time pod soobzheniem!>
-  <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
-  <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  <time datetime="<%= @thing.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
+  <%= @thing.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
   </time>  
-<%= link_to ('Edit'), edit_article_path(@article),class: "button is-success is-light"%> 
-<%= link_to ('Delete'), article_path(@article), data: {'turbo-method': :delete,'turbo-confirm': 
+<%= link_to ('Edit'), edit_thing_path(@thing),class: "button is-success is-light"%> 
+<%= link_to ('Delete'), thing_path(@thing), data: {'turbo-method': :delete,'turbo-confirm': 
      'Are you sure?'}, class:"button is-danger is-light"%>
 
 <!/////////////////////////////////////////////////////////////////////////////////////////>
@@ -25,7 +25,7 @@
 <h4> Write youre Comment </h4>
   
                       <!Dobawil Comment>
- <%= form_with model: [@commentable, @comment] do |f| %>
+  <%= form_with model: [@commentable, @comment] do |f| %>
 
   <div class="mb-3 row">
     <div class="col-sm-2 col-form-label">
@@ -49,8 +49,8 @@
   <article class="mb-3 card" id="comment-<%= comment.id %>">
       <div class="card-body">
            <! Podkluchenie time pod soobzheniem!>
-  <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
-  <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  <time datetime="<%= @thing.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
+  <%= @thing.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
   </time>  
          
          <section class="card-text">
@@ -60,8 +60,8 @@
          </section>
               
  
- <%= link_to  "Edit Comment", edit_article_comment_path(@article,comment),class: "button is-success is-light"%> 
- <%= link_to 'Delete', article_comment_path(@article, comment), class: 'button is-danger is-light',
+ <%= link_to  "Edit Comment", edit_thing_comment_path(@thing, comment),class: "button is-success is-light"%> 
+ <%= link_to 'Delete', thing_comment_path(@thing, comment), class: 'button is-danger is-light',
       data: {method: :delete, confirm: "Are you sure?"} %>
    </div>
  </article>

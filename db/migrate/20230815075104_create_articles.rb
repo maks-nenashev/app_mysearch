@@ -4,8 +4,8 @@ class CreateArticles < ActiveRecord::Migration[7.0]
 
       t.string :title
       t.text :text
-      #t.integer :created_by
-     # t.integer :local_id
+      t.integer :created_by
+      t.integer :local_id
       
       t.timestamps
     end

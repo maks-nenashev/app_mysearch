@@ -57,10 +57,13 @@ class CommentsController < ApplicationController
           if 
           params[:article_id].present?
           @commentable = Article.find_by_id(params[:article_id])
-          else 
+          elsif
           params[:thing_id].present?
           @commentable = Thing.find_by_id(params[:thing_id])
-        end
+          else
+          params[:sense_id].present?
+          @commentable = Sense.find_by_id(params[:sense_id])
+          end
        end
      
           

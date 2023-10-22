@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 get '/' =>'home#index'   # Eto nuzno wsegda! 
 root to: "home#index"
 
+resources :senses do
+  resources :comments #, except: %i[new show] # Wse marшруты нужны кроме [ new show]
+end #4 
+
 resources :things do
      resources :comments #, except: %i[new show] # Wse marшруты нужны кроме [ new show]
    end #4 

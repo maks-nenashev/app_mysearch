@@ -14,8 +14,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_22_122928) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "text"
-    t.integer "created_by"
-    t.integer "local_id"
+    t.string "local"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
@@ -28,6 +27,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_22_122928) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
+  end
+
+  create_table "locals", force: :cascade do |t|
+    t.text "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "senses", force: :cascade do |t|

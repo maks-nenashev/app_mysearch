@@ -10,25 +10,26 @@ class ArticlesController < ApplicationController
       @commentable = @article
       @comment = Comment.new
       # @article = Article.find params[:id]  :before_action :set_article! "Refactoring"
-     end
+     # @locals = Local.new
+   end
       
   
    def new  # 1: создать - new (отобразить форму. GET)
        @article = Article.new  # Пустым оставлять тельзя!
-       #@locals = Local.all
+       @locals = Local.all
       end
     
    def create # 2: create (отправить форму. POST)   
        @article = Article.new(article_params)
-       #@locals = Local.new
-       #@article = current_user.Article.new(article_params)
+       #@article = current_user.Article.new(article_params)     
     if @article.valid?
        @article.save 
        flash[:success] = "Article created!"   #Window Podtwerzdenija
-       redirect_to @article #У нас происходит редирект на "show" поэтому представление --
-                            #--"create" нам теперь не нужно, его можно удалить.
+       redirect_to @article 
     else
-       render action: 'new'  #"perenaprowlenie"
+      # @locals = Local.all
+    #else  
+      render action: 'new'  #"perenaprowlenie"
      end
    end
     
@@ -57,7 +58,7 @@ class ArticlesController < ApplicationController
    private
   
     def article_params
-      params.require(:article).permit(:title, :text, :local_id, :avatar)
+      params.require(:article).permit(:title, :text, :local, :avatar)
    end
   
     def set_article!  # :before_action :set_article! only[show destroy edit update] "Refactoring"

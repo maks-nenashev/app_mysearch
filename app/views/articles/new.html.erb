@@ -5,11 +5,9 @@
 <div class="field is-link">
   <p class="control has-icons-left">
     <span class="select">
-      
-       <%= select(:article,:local, options_from_collection_for_select(@locals, "id","title", @article.present? ? @article.local : nil ), {}) %>
+         
+    <%= select(:article,:local_id, options_from_collection_for_select(@locals, "id","title", @article.present? ? @article.local_id : nil ), {}) %>
        
-       <!%= select(:article, :local, options_from_collection_for_select(@locals, "id", "title", @article.present? ? @article.local : nil ), {}) %>
-    
     </span>
     <span class="icon is-small is-left">
       <i class="fas fa-globe"></i>

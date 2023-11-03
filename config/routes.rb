@@ -14,5 +14,10 @@ resources :things do
 resources :articles do
     resources :comments 
   end  
-  
+
+  get 'articles/:id', to: 'articles#show', constraints: { id: /\d+/ }
+  get 'articles/:local', to: 'articles#local'  
+
+
+
 end

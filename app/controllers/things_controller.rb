@@ -3,18 +3,20 @@ class ThingsController < ApplicationController
                                                                
     def index   # 4: Wywod wsech zapisej!
         @things = Thing.all
-    end
+        @locals = Local.all
+      end
      
     def show  # 3: Wywodim bazu po :ID
         @commentable = @thing
         @comment = Comment.new
-      # @thing = Thing.find(params[:id]) :before_action :set_thing! only[show destroy edit update] "Refactoring"
+        @locals = Local.new
+        # @thing = Thing.find(params[:id]) :before_action :set_thing! only[show destroy edit update] "Refactoring"
      end
        
    
     def new  # 1: создать - new (отобразить форму. GET)
         @thing = Thing.new  # Пустым оставлять тельзя!
-       # @locals = Local.new
+        @locals = Local.all
        end
      
     def create # 2: create (отправить форму. POST)   

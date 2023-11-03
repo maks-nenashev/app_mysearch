@@ -3,7 +3,7 @@
 <h2>Edit article</h2>  
  <br> 
                   <!#5 Wozwrat i Redactirowanie>       
-<%= form_for :thing, url: sense_path(@sense), method: :patch do |f| %>
+<%= form_for :sense, url: sense_path(@sense), method: :patch do |f| %>
 
 <!%= render 'shared/errors', object: @article %> <!Walidacija - papka shared/_errors>
 <!% if @article && @article.errors.full_messages.any?%> <!Prowerka! Esli estj ochybka to nepropustit>

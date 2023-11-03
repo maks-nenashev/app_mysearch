@@ -3,18 +3,20 @@ class SensesController < ApplicationController
                                                                
     def index   # 4: Wywod wsech zapisej!
         @senses = Sense.all
-    end
+        @locals = Local.all
+      end
      
     def show  # 3: Wywodim bazu po :ID
         @commentable = @sense
         @comment = Comment.new
-       # @sense = Sense.find params[:id]    :before_action :set_article! "Refactoring"
+        @locals = Local.new
+        # @sense = Sense.find params[:id]    :before_action :set_article! "Refactoring"
      end
        
    
     def new  # 1: создать - new (отобразить форму. GET)
         @sense = Sense.new  # Пустым оставлять тельзя!
-        #@locals = Local.all
+        @locals = Local.all
        end
      
     def create # 2: create (отправить форму. POST)   
@@ -56,7 +58,7 @@ class SensesController < ApplicationController
     private
    
      def sense_params
-       params.require(:sense).permit(:title, :text)
+       params.require(:sense).permit(:title, :text, :local_id)
     end
    
      def set_sense!  # :before_action :set_sense! only[show destroy edit update] "Refactoring"

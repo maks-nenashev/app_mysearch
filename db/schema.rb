@@ -38,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_22_122928) do
   create_table "senses", force: :cascade do |t|
     t.string "title"
     t.text "text"
+    t.integer "local_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,6 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_22_122928) do
   create_table "things", force: :cascade do |t|
     t.string "title"
     t.text "text"
+    t.integer "local_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

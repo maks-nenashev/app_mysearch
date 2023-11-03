@@ -1,21 +1,13 @@
-<%= form_for :sense, url: senses_path, data: {turbo:false}  do |f| %>
+<%= form_for :sense, url: senses_path, method: "sense" do %>
 
-
-<!%= render 'shared/errors', object: @article %> <!Walidacija - papka shared/_errors>
-<!% if @article && @article.errors.full_messages.any?%> <!Prowerka! Esli estj ochybka to nepropustit>
-<!% end%>
 <br>
 <br>
 <div class="field is-link">
   <p class="control has-icons-left">
     <span class="select">
-      <select>
+         
+    <%= select(:sense,:local_id, options_from_collection_for_select(@locals, "id","title", @sense.present? ? @sense.local_id : nil ), {}) %>
        
-        <!%= f.locals.each do |local|%>
-    <!option value="<!%= local.id %>"> <!%= local.title %><!/option>
-    <!% end %>
-    
-     </select>
     </span>
     <span class="icon is-small is-left">
       <i class="fas fa-globe"></i>
@@ -25,32 +17,31 @@
 
 <div class="mb-3 row">
 <div class="col-sm-2 col-form-label">  
-    <%= f.label :title %>
-</div>
+    <%= label(:sense, :title) %>
+  </div>
 
-<div class="col-sm-10">          <! Walidacija CSS ---required: true, minlength:2,>
-    <%= f.text_field :title, placeholder: "Title", class: "input is-link"%>
-</div>
-</div>
+<div class="col-sm-10">         
+    <%= text_field(:sense, :title, class: "input is-link") %>
+  </div>
+  </div>
 
 <div class="mb-3 row">
 <div class="col-sm-2 col-form-label">
-    <%= f.label :text %>
-</div>
+    <%= label(:sense, :text) %>
+  </div>
 
-<div class="col-sm-10">     <! Walidacija CSS ---required: true, minlength:2,>
-    <%= f.text_area :text, placeholder: "Text", class: "textarea is-focused"%>
-</div>
-</div>
+<div class="col-sm-10">     
+    <%= text_area(:sense, :text, class: "textarea is-focused") %>
+  </div>
+  </div>
 
 <br>
 <div class="col-sm-10">     
-    <%= f.file_field :avatar, class: "button is-warning"%>
-</div>
+    <%= file_field :sense, :avatar, class: "button is-warning"%>
+  </div>
 <br>
   
-
-  <%= f.submit 'Submit article', class: "button is-primary is-rounded"%>
+  <%= submit_tag 'Submit article', class: "button is-primary is-rounded"%>
   <%= link_to "Show all articles!",senses_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
 
 <%end%>

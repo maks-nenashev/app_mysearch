@@ -1,5 +1,23 @@
 <br>
 <h2 class="mb-4">List of articles!</h2>  <!# Wywod wsech zapisej!>
+
+<div class="field is-link">
+  <p class="control has-icons-left">
+    <span class="select">
+      <select>
+       
+        <% @locals.each do |local|%>
+     <option value="<%= local.id %>"> <%= local.title %></option>
+    <% end %>
+    
+     </select>
+    </span>
+    <span class="icon is-small is-left">
+      <i class="fas fa-globe"></i>
+    </span>
+  </p>
+</div>
+
 <p>
 <%= link_to "New article", new_sense_path,class: "button is-primary is-rounded" %>
 </p>

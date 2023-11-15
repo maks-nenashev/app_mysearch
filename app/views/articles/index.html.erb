@@ -1,0 +1,76 @@
+<br>
+<h2 class="mb-4">List of articles!</h2>  <!# Wywod wsech zapisej!>
+
+<div class="field has-addons">
+  <div class="control">
+    <div class="select is-fullwidth">
+      <select name="country">
+          
+          <% @locals.each  do |local|%>
+     <option value="<%= local.id %>"> <%= local.title %></option>!
+    <% end %>
+
+      </select>
+     </div>
+    </div>
+  <div class="control">
+    <button type="submit" class="button is-primary">Random</button>
+    <%= link_to "Показати усi оголошення!",articles_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
+  </div>
+ </div>
+
+    <%= sort_link(@q, :local_title, default_order: :asc)%>
+     
+   <div class="field is-grouped">
+      <%= search_form_for @q do |f| %>
+       <%= f.search_field :local_title_cont, class:"input", placeholder:"Введіть ключове слово пошуку!"%> 
+      <span class="control">
+      <%= f.submit "Шукати!", class:"button is-info"%> 
+  
+      <%end%>
+      </span>
+   </div>
+ 
+ 
+ <br>    
+<p>
+<%= link_to "New article", new_article_path,class: "button is-primary is-rounded" %>
+<!%= link_to "New article", new_article_path, class: "button big gray bi bi-pencil-square"%>
+
+</p>
+<% @articles.each do |article| %>
+     <article class="card mt-3">
+     <div class="card-body">
+  
+  <h2>
+  <%= article.title %>
+  </h2>
+  <p class="my-2">
+  <%= image_tag article.avatar.url(:thumb), class: 'img-thumbnail thumb' if article.avatar?%>            
+  </p>          
+  <h4 class="my-2">
+  <%= article.text %>
+  </h4>
+        <section class="card-text">
+           <! Podkluchenie time pod soobzheniem!>
+  <time datetime="<%= article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
+  <%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  </time>  
+           </section>            
+   <hr>
+                     <!Ssylka na statью>
+  <p><!%= link_to "New article", new_article_path(article),class: "btn btn-primary" %> 
+     <%= link_to  "Show article", article_path(article),class: "button is-primary is-light"%>  
+     <%= link_to  "Edit article", edit_article_path(article),class: "button is-success is-light"%> 
+     <%= link_to 'Delete', article_path(article), data: {'turbo-method': :delete,'turbo-confirm': 
+     'Are you sure?'}, class:"button is-danger is-light"%>
+                    
+                       <! rails routes>                         <!Eto JS window "Udalit post">
+  
+            
+     </div>
+   </article>
+<% end %>
+<br>
+<br>
+ 

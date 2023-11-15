@@ -1,0 +1,49 @@
+<br>
+<br>
+<h2>Edit article</h2>  
+ <br> 
+                  <!#5 Wozwrat i Redactirowanie>       
+<%= form_for :thing, url: thing_path(@thing), method: :patch do |f| %>
+
+<!%= render 'shared/errors', object: @article %> <!Walidacija - papka shared/_errors>
+<!% if @article && @article.errors.full_messages.any?%> <!Prowerka! Esli estj ochybka to nepropustit>
+<!% end%>
+
+<div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">   
+    <%= f.label :title %>
+</div>
+
+<div class="col-sm-10">          <!Walidacija CSS --required: true, minlength:2,>
+    <%= f.text_field :title, placeholder: "Title", class: "input is-link"%>
+</div>
+</div>
+
+<div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :text %>
+    </div>
+
+ <div class="col-sm-10">    <!Walidacija CSS  --required: true, minlength:2,>
+    <%= f.text_area :text, placeholder: "Text", class: "textarea is-focused"%>
+ </div>
+</div>
+
+<br>
+<div class="col-sm-10">     
+    <%= f.file_field :avatar, class: "button is-warning"%>
+</div>
+<br>
+
+  <%= f.submit "Submit Article", class: "button is-primary is-rounded"%>
+ <%= link_to "Show all articles!",things_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
+
+
+<% end %>
+
+<! Все находитсья  в  " edit.html.erb">
+<br>
+<!%= link_to "Show all articles!",articles_path, class:"button is-light" %> <!Prawelnaja ssylka>
+
+<br>
+<br>

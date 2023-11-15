@@ -1,19 +1,14 @@
 class ArticlesController < ApplicationController
-  
-    before_action :set_article!, only: %i[show destroy edit update]  # @article = Article.find params[:id]   "Refactoring"
+   
+   before_action :set_article!, only: %i[show destroy edit update]  # @article = Article.find params[:id]   "Refactoring"
                                                                
-    def local
-         @local = Local.find_by(title: params[:local])
-         @articles = @local.articles
-  
-     render 'index'
-    end
-  
     
     def index   # 4: Wywod wsech zapisej!
        @articles = Article.all
        @locals = Local.all
-   end
+       @q = Article.ransack(params[:q])
+       @articles = @q.result(distinct: true)
+      end
     
    def show  # 3: Wywodim bazu po :ID
       @commentable = @article
@@ -36,7 +31,7 @@ class ArticlesController < ApplicationController
        flash[:success] = "Article created!"   #Window Podtwerzdenija
        redirect_to @article 
     else
-       #@locals = Local.all
+       @locals = Local.all
     #else  
       render action: 'new'  #"perenaprowlenie"
      end

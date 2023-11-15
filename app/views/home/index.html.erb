@@ -1,10 +1,25 @@
 <br>
 <br>
+<div class="field is-grouped is-grouped-centered">
+  <!div class="control">
+     <%= search_form_for @q do |f| %>
+     <%= f.search_field :local_title_cont, class:"input", placeholder:"Введіть ключове слово пошуку!"%> 
+  <!/p>
+  <!p class="control">
+    <!a class="control">
+    <%= f.submit "Шукати!", class:"button is-info"%>
+    <!/a>
+   <%end%>
+  <!/div>
+</div>
+
+<br>
+<br>
 <div class="tile is-ancestor">
   <div class="tile is-parent is-vertical ">
      <article class="tile is-child notification is-warning">
       <div class="content">
-        <p class="title">Люди</p>
+        <p class="title" {text-align: center;} >Люди</p>
         <p class="subtitle">With even more content</p>
         <figure class="image is-4by4">
         <!a href="https://www.nenashev.eu">

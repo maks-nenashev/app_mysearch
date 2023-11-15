@@ -1,22 +1,38 @@
 <br>
 <h2 class="mb-4">List of articles!</h2>  <!# Wywod wsech zapisej!>
 
-<div class="field is-link">
-  <p class="control has-icons-left">
-    <span class="select">
-      <select>
-       
-        <% @locals.each do |local|%>
-     <option value="<%= local.id %>"> <%= local.title %></option>
+<div class="field has-addons">
+  <div class="control">
+    <div class="select is-fullwidth">
+      <select name="country">
+          
+          <% @locals.each  do |local|%>
+     <option value="<%= local.id %>"> <%= local.title %></option>!
     <% end %>
-    
-     </select>
-    </span>
-    <span class="icon is-small is-left">
-      <i class="fas fa-globe"></i>
-    </span>
-  </p>
-</div>
+
+      </select>
+     </div>
+    </div>
+  <div class="control">
+    <button type="submit" class="button is-primary">Random</button>
+    <%= link_to "Показати усi оголошення!",articles_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
+  </div>
+ </div>
+
+    <%= sort_link(@q, :local_title, default_order: :asc)%>
+     
+   <div class="field is-grouped">
+      <%= search_form_for @q do |f| %>
+       <%= f.search_field :local_title_cont, class:"input", placeholder:"Введіть ключове слово пошуку!"%> 
+      <span class="control">
+      <%= f.submit "Шукати!", class:"button is-info"%> 
+  
+      <%end%>
+      </span>
+   </div>
+ 
+ 
+ <br>    
 <p>
 <%= link_to "New article", new_article_path,class: "button is-primary is-rounded" %>
 <!%= link_to "New article", new_article_path, class: "button big gray bi bi-pencil-square"%>
@@ -30,7 +46,7 @@
   <%= article.title %>
   </h2>
   <p class="my-2">
-  <%= image_tag article.avatar.url(:thumb), class: 'img-thumbnail thumb' if article.avatar? %>            
+  <%= image_tag article.avatar.url(:thumb), class: 'img-thumbnail thumb' if article.avatar?%>            
   </p>          
   <h4 class="my-2">
   <%= article.text %>

@@ -4,35 +4,21 @@
 <div class="field has-addons">
   <div class="control">
     <div class="select is-fullwidth">
-      <select name="country">
-          
-          <% @locals.each  do |local|%>
-     <option value="<%= local.id %>"> <%= local.title %></option>!
+      
+          <%= search_form_for @q do |f| %>
+          <%= f.select :local_id_eq, @locals.map { |t| [t.title, t.id] }, required: false , class:"input" %>
+      
+     <!br>
+     <%= f.submit "Шукати!", class:"button is-warning "%>
     <% end %>
-
-      </select>
-     </div>
-    </div>
-  <div class="control">
-    <button type="submit" class="button is-primary">Random</button>
+  </div>
+   </div>
     <%= link_to "Показати усi оголошення!",articles_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
   </div>
- </div>
 
-    <%= sort_link(@q, :local_title, default_order: :asc)%>
-     
-   <div class="field is-grouped">
-      <%= search_form_for @q do |f| %>
-       <%= f.search_field :local_title_cont, class:"input", placeholder:"Введіть ключове слово пошуку!"%> 
-      <span class="control">
-      <%= f.submit "Шукати!", class:"button is-info"%> 
-  
-      <%end%>
-      </span>
-   </div>
- 
- 
- <br>    
+    <%#= sort_link(@q, :local_title, default_order: :asc)%>
+<br>
+<br>    
 <p>
 <%= link_to "New article", new_article_path,class: "button is-primary is-rounded" %>
 <!%= link_to "New article", new_article_path, class: "button big gray bi bi-pencil-square"%>

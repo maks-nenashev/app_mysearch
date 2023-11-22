@@ -6,7 +6,7 @@
   <p class="control has-icons-left">
     <span class="select">
          
-    <!%= select(:thing,:local_id, options_from_collection_for_select(@locals, "id","title", @thing.present? ? @thing.local_id : nil ), {}) %>
+    <%#= select(:thing,:local_id, options_from_collection_for_select(@locals, "id","title", @thing.present? ? @thing.local_id : nil ), {}) %>
        <%= select(:thing,:local_id, Local.all.collect {|local| [local.title, local.id]}) %>  
     </span>
     <span class="icon is-small is-left">

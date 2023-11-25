@@ -4,7 +4,9 @@ class SensesController < ApplicationController
     def index   # 4: Wywod wsech zapisej!
         @senses = Sense.all
         @locals = Local.all
-      end
+        @q = Sense.ransack(params[:q])
+        @senses = @q.result(distinct: true)
+     end
      
     def show  # 3: Wywodim bazu po :ID
         @commentable = @sense

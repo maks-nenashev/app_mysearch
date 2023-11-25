@@ -1,12 +1,14 @@
 class ThingsController < ApplicationController
     before_action :set_thing!, only: %i[show destroy edit update]  # @article = Article.find params[:id]   "Refactoring"
                                                                
-    def index   # 4: Wywod wsech zapisej!
+    def index  
         @things = Thing.all
         @locals = Local.all
+        @q = Thing.ransack(params[:q])
+        @things = @q.result(distinct: true)
       end
      
-    def show  # 3: Wywodim bazu po :ID
+    def show  
         @commentable = @thing
         @comment = Comment.new
         @locals = Local.new
@@ -14,8 +16,8 @@ class ThingsController < ApplicationController
      end
        
    
-    def new  # 1: создать - new (отобразить форму. GET)
-        @thing = Thing.new  # Пустым оставлять тельзя!
+    def new  
+        @thing = Thing.new  
         @locals = Local.all
        end
      
@@ -25,19 +27,18 @@ class ThingsController < ApplicationController
         #@article = current_user.Article.new(article_params)
      if @thing.valid?
         @thing.save 
-        flash[:success] = "Article created!"   #Window Podtwerzdenija
-        redirect_to @thing #У нас происходит редирект на "show" поэтому представление --
-                             #--"create" нам теперь не нужно, его можно удалить.
+        flash[:success] = "Article created!"   
+        redirect_to @thing 
      else
-        render action: 'new'  #"perenaprowlenie"
+        render action: 'new' 
       end
     end
      
-    def edit   # 5: Wozwrat i Redactirowanie
+    def edit   
        #@thing = Thing.find params[:id] :before_action :set_thing! "Refactoring"
-    end
+     end
    
-    def update #6  Wnosim izmenrnie w redaktirowanie
+    def update 
        #@thing = Thing.find(params[:id]) before_action :set_shing! "Refactoring"
      if @thing.update(thing_params) # Obnowlaem s nowymi parametromi
         redirect_to @thing
@@ -47,11 +48,11 @@ class ThingsController < ApplicationController
      end
    end
    
-   def destroy # Delite publikacij
+   def destroy 
      #@thing = Thing.find(params[:id]) # :before_action :set_thing! "Refactoring"
      @thing.destroy
      flash[:success] = "Article deleted!"     #Window Podtwerzdenija
-     redirect_to @thing  #"perenaprowlenie"
+     redirect_to @thing  
    end
    
    #////////////////////////////////////////////////////////////////////////////////////

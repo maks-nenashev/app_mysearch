@@ -15,7 +15,7 @@
   </div>
    </div>
     </div>
-    <%= link_to "Показати усi оголошення!", things_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
+    <%= link_to "Показати всi оголошення!", things_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
   <!/div>
 </div>
     <%#= sort_link(@q, :local_title, default_order: :asc)%>
@@ -23,7 +23,7 @@
 <br>    
 
 <p>
-<%= link_to "New article", new_thing_path,class: "button is-primary is-rounded" %>
+<strong><%= link_to "Нове оголошення!", new_thing_path,class: "button is-warning is-rounded"%></strong>
 </p>
 <% @things.each do |thing| %>
      <article class="card mt-3">

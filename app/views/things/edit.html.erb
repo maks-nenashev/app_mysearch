@@ -1,6 +1,6 @@
 <br>
 <br>
-<h2>Edit article</h2>  
+<h2>Редагувати</h2>  
  <br> 
                   <!#5 Wozwrat i Redactirowanie>       
 <%= form_for :thing, url: thing_path(@thing), method: :patch do |f| %>
@@ -35,8 +35,8 @@
 </div>
 <br>
 
-  <%= f.submit "Submit Article", class: "button is-primary is-rounded"%>
- <%= link_to "Show all articles!",things_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
+  <%= f.submit "Редагувати огодошення", class: "button is-primary is-rounded"%>
+ <%= link_to "Показати всi оголошення !",things_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
 
 
 <% end %>

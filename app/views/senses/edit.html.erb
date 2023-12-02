@@ -1,6 +1,6 @@
 <br>
 <br>
-<h2>Edit article</h2>  
+<h2>Редагувати</h2>  
  <br> 
                   <!#5 Wozwrat i Redactirowanie>       
 <%= form_for :sense, url: sense_path(@sense), method: :patch do |f| %>
@@ -11,11 +11,11 @@
 
 <div class="mb-3 row">
     <div class="col-sm-2 col-form-label">   
-    <%= f.label :title %>
+    <%= f.label :Заголовок %>
 </div>
 
 <div class="col-sm-10">          <!Walidacija CSS --required: true, minlength:2,>
-    <%= f.text_field :title, placeholder: "Title", class: "input is-link"%>
+    <%= f.text_field :title, placeholder: "Напешить Заголовок!", class: "input is-link"%>
 </div>
 </div>
 
@@ -25,7 +25,7 @@
     </div>
 
  <div class="col-sm-10">    <!Walidacija CSS  --required: true, minlength:2,>
-    <%= f.text_area :text, placeholder: "Text", class: "textarea is-focused"%>
+    <%= f.text_area :text, placeholder: "Напешить Текст!", class: "textarea is-focused"%>
  </div>
 </div>
 
@@ -35,8 +35,8 @@
 </div>
 <br>
 
-  <%= f.submit "Submit Article", class: "button is-primary is-rounded"%>
- <%= link_to "Show all articles!",senses_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
+  <%= f.submit "Редагувати оголошення", class: "button is-primary is-rounded"%>
+ <%= link_to "Показати всi оголошення!",senses_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
 
 
 <% end %>

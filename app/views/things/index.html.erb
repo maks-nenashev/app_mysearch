@@ -32,7 +32,7 @@
   <%= thing.title %>
   </h2>
   <p class="my-2">
-  <!%= image_tag thing.avatar.url(:thumb), class: 'img-thumbnail thumb' if thing.avatar? %>            
+  <%= image_tag thing.image, style: "width: 360px; height: auto"%>            
   </p>          
   <h4 class="my-2">
   <%= thing.text %>

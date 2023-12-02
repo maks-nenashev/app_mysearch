@@ -1,6 +1,23 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  
+get '/' =>'home#index'   # Eto nuzno wsegda! 
+root to: "home#index"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+resources :senses do
+  resources :comments 
+end 
+
+resources :things do
+     resources :comments 
+   end 
+
+resources :articles do
+    resources :comments 
+  end  
+
+  get 'articles/:id', to: 'articles#show', constraints: { id: /\d+/ }
+  get 'articles/:local', to: 'articles#local'  
+
+
+
 end

@@ -1,0 +1,46 @@
+<%= form_for :article, url: articles_path, method: "article" do |f|%>
+
+<br>
+<br>
+<div class="field is-link">
+  <p class="control has-icons-left">
+    <span class="select">
+         
+<%= select(:article,:local_id, options_from_collection_for_select(@locals, "id","title", @article.present? ? @article.local_id : nil ), {}) %>
+       
+    </span>
+    <span class="icon is-small is-left">
+      <i class="fas fa-globe"></i>
+    </span>
+  </p>
+</div>
+
+
+<div class="field">
+  <label class="label">Заголовок</label>
+  <div class="control">        
+    <%= f.text_field :title, class: "input is-link" %>
+  </div>
+  </div>
+
+
+<div class="field">
+  <label class="label">Текст</label>
+  <div class="control">
+    <%= f.text_area :text, class: "textarea is-focused" %>
+  </div>
+</div>
+
+<br>
+<div class="col-sm-10">     
+    <%= f.file_field :avatar, class: "button is-warning"%>
+  </div>
+<br>
+  
+  <%= submit_tag 'Создати оголошення', class: "button is-primary is-rounded"%>
+  <%= link_to "Показати усi оголошення!",articles_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
+
+<%end%>
+
+<br>
+<br>

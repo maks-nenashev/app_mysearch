@@ -1,0 +1,21 @@
+<%= form_with model: [@commentable, @comment] do |f| %>
+  
+  </br>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :body %>
+    </div>
+
+                                   <! Walidacija CSS ---required: true, minlength:2,>
+      
+<div class="control">
+   <%= f.text_area :body, class: 'textarea is-focused',required: true, minlength:2 %>
+</div>
+  
+  <br>
+  <%= f.submit "Submit comment!", class: 'button is-primary is-rounded' %>
+<% end %>
+
+</br>
+</br>
+</br>

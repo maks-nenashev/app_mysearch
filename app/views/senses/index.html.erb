@@ -1,0 +1,62 @@
+<br>
+<h2 class="mb-5">Список оголошень!</h2>  <!# Wywod wsech zapisej!>
+
+<div class="field has-addons">
+  <div class="control">
+    <div class="select is-fullwidth">
+     
+          <%= search_form_for @q do |f| %>
+          <%= f.select :local_id_eq, @locals.map { |t| [t.title, t.id] }, required: false , class:"input" %>
+      
+     <!br>
+     <div class="buttons are-small"> 
+     <%= f.submit "Шукати!", class:"button is-primary"%>
+    <% end %>
+  </div>
+   </div>
+    </div>
+    <%= link_to "Показати всi оголошення!",senses_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
+  <!/div>
+</div>
+    <%#= sort_link(@q, :local_title, default_order: :asc)%>
+<br>
+<br>    
+
+<p>
+<strong><%= link_to "Нове оголошення!", new_sense_path,class: "button is-warning is-rounded"%></strong>
+</p>
+<% @senses.each do |sense| %>
+     <article class="card mt-3">
+     <div class="card-body">
+  <h2>
+  <%= sense.title %>
+  </h2>
+  <p class="my-2">
+  <!%= image_tag thing.avatar.url(:thumb), class: 'img-thumbnail thumb' if thing.avatar? %>            
+  </p>          
+  <h4 class="my-2">
+  <%= sense.text %>
+  </h4>
+        <section class="card-text">
+           <! Podkluchenie time pod soobzheniem!>
+  <time datetime="<%= sense.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
+  <%= sense.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  </time>  
+           </section>            
+   <hr>
+                     <!Ssylka na statью>
+  <p><!%= link_to "New article", new_article_path(article),class: "btn btn-primary" %> 
+     <%= link_to  "Показати", sense_path(sense),class: "button is-primary is-light"%>  
+     <%= link_to  "Редагувати", edit_sense_path(sense),class: "button is-success is-light"%> 
+     <%= link_to 'Видалити', sense_path(sense), data: {'turbo-method': :delete,'turbo-confirm': 
+     'Are you sure?'}, class:"button is-danger is-light"%>
+                    
+                       <! rails routes>                         <!Eto JS window "Udalit post">
+  
+            
+     </div>
+   </article>
+<% end %>
+<br>
+<br>
+ 

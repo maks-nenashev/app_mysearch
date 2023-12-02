@@ -1,5 +1,5 @@
 <br>
-<h2 class="mb-4">List of articles!</h2>  <!# Wywod wsech zapisej!>
+<h2 class="mb-5">Список оголошень!</h2>  <!# Wywod wsech zapisej!>
 
 <div class="field has-addons">
   <div class="control">
@@ -15,7 +15,7 @@
   </div>
    </div>
     </div>
-    <%= link_to "Показати усi оголошення!",senses_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
+    <%= link_to "Показати всi оголошення!",senses_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
   <!/div>
 </div>
     <%#= sort_link(@q, :local_title, default_order: :asc)%>
@@ -23,7 +23,7 @@
 <br>    
 
 <p>
-<%= link_to "New article", new_sense_path,class: "button is-primary is-rounded" %>
+<strong><%= link_to "Нове оголошення!", new_sense_path,class: "button is-warning is-rounded"%></strong>
 </p>
 <% @senses.each do |sense| %>
      <article class="card mt-3">
@@ -46,9 +46,9 @@
    <hr>
                      <!Ssylka na statью>
   <p><!%= link_to "New article", new_article_path(article),class: "btn btn-primary" %> 
-     <%= link_to  "Show article", sense_path(sense),class: "button is-primary is-light"%>  
-     <%= link_to  "Edit article", edit_sense_path(sense),class: "button is-success is-light"%> 
-     <%= link_to 'Delete', sense_path(sense), data: {'turbo-method': :delete,'turbo-confirm': 
+     <%= link_to  "Показати", sense_path(sense),class: "button is-primary is-light"%>  
+     <%= link_to  "Редагувати", edit_sense_path(sense),class: "button is-success is-light"%> 
+     <%= link_to 'Видалити', sense_path(sense), data: {'turbo-method': :delete,'turbo-confirm': 
      'Are you sure?'}, class:"button is-danger is-light"%>
                     
                        <! rails routes>                         <!Eto JS window "Udalit post">

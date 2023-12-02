@@ -43,9 +43,8 @@
   <%= thing.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
   </time>  
            </section>            
-   <hr>
+   <!hr>
                      <!Ssylka na statью>
-  <p><!%= link_to "New article", new_article_path(article),class: "btn btn-primary" %> 
      <%= link_to  "Show article", thing_path(thing),class: "button is-primary is-light"%>  
      <%= link_to  "Edit article", edit_thing_path(thing),class: "button is-success is-light"%> 
      <%= link_to 'Delete', thing_path(thing), data: {'turbo-method': :delete,'turbo-confirm': 

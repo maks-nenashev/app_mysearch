@@ -60,7 +60,7 @@ class SensesController < ApplicationController
     private
    
      def sense_params
-       params.require(:sense).permit(:title, :text, :local_id)
+       params.require(:sense).permit(:title, :text, :local_id, :image)
     end
    
      def set_sense!  # :before_action :set_sense! only[show destroy edit update] "Refactoring"

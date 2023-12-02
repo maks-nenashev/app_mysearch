@@ -7,7 +7,7 @@
  
  <h4><%= @sense.title %></h4>
  
- <!%= image_tag @thing.avatar_url(:thumb), class: 'img-thumbnail thumb'if @thing.avatar? %>
+ <%= image_tag @sense.image, style: "width: 380px; height: auto" %>
  
  <p class="lead my-3"><%= @sense.text %></p>
   

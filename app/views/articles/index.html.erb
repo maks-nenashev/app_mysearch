@@ -21,11 +21,13 @@
     <%#= sort_link(@q, :local_title, default_order: :asc)%>
 <br>
 <br>    
+<br>
 <p>
 <strong><%= link_to "Нове оголошення!", new_article_path,class: "button is-warning is-rounded"%></strong>
 <!%= link_to "New article", new_article_path, class: "button big gray bi bi-pencil-square"%>
-
 </p>
+
+<br>
 <% @articles.each do |article| %>
      <article class="card mt-3">
      <div class="card-body">

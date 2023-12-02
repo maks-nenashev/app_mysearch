@@ -32,7 +32,7 @@
   <%= sense.title %>
   </h2>
   <p class="my-2">
-  <!%= image_tag thing.avatar.url(:thumb), class: 'img-thumbnail thumb' if thing.avatar? %>            
+  <%= image_tag sense.image, style: "width: 360px; height: auto" %>            
   </p>          
   <h4 class="my-2">
   <%= sense.text %>
@@ -43,9 +43,8 @@
   <%= sense.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
   </time>  
            </section>            
-   <hr>
-                     <!Ssylka na statью>
-  <p><!%= link_to "New article", new_article_path(article),class: "btn btn-primary" %> 
+   <!hr>
+                     <!Ssylka na statью> 
      <%= link_to  "Показати", sense_path(sense),class: "button is-primary is-light"%>  
      <%= link_to  "Редагувати", edit_sense_path(sense),class: "button is-success is-light"%> 
      <%= link_to 'Видалити', sense_path(sense), data: {'turbo-method': :delete,'turbo-confirm': 

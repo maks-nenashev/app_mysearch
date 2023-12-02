@@ -45,7 +45,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_02_173132) do
     t.integer "local_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "avatar"
   end
 
   create_table "comments", force: :cascade do |t|

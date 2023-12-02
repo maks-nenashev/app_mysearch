@@ -7,7 +7,7 @@
  
  <h4><%= @article.title %></h4>
  
- <%= image_tag @article.avatar_url(:thumb), class: 'img-thumbnail thumb'if @article.avatar? %>
+ <%= image_tag @article.image, style: "width: 380px; height: auto"%>
  
  <p class="lead my-3"><%= @article.text %></p>
   

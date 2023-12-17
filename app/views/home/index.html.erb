@@ -1,0 +1,64 @@
+<br>
+<br>
+<div class="field is-grouped is-grouped-centered">
+     <%= search_form_for @q do |f| %>
+     <%#= f.submit "Шукати!", class:"button is-info"%>
+     <%= f.search_field :local_title_cont, class:"input", placeholder:"Введіть ключове слово пошуку!"%> 
+     <%= f.submit "Шукати!", class:"button is-info"%>
+   <%end%>
+</div>
+
+<br>
+<br>
+<div class="tile is-ancestor">
+  <div class="tile is-parent is-vertical ">
+     <article class="tile is-child notification is-warning">
+      <div class="content">
+        <p class="title" {text-align: center;} >Люди</p>
+        <p class="subtitle">У цьому розділі Ви можете шукати та знаходити людей</p>
+        <figure class="image is-4by4">
+        <!a href="https://www.nenashev.eu">
+        <%= link_to image_tag("piople.jpg",:size => "740x580", class: "button is-piople"),senses_path%>
+        <!/a>
+        <div class="content">
+          Цей розділ не рекомендований медіаторами
+          неповнолітнім Дітям віком до 16 років!
+          <!-- Content --><!p class="subtitle"><!/p>
+        </div>
+      </div>
+     </article>
+    </div>
+    
+    <div class="tile is-parent is-vertical ">
+     <article class="tile is-child notification is-warning">
+      <div class="content">
+        <p class="title">Тварини</p>
+        <p class="subtitle">Тут нас чекають наші молодші втрачені друзі!</p>
+        <figure class="image is-4by4">
+           <!%= link_to, articles_path%>
+          <%= link_to image_tag("dag.jpg",:size => "740x580", class: "button is-dag"),articles_path %>
+        <div class="content">
+          <!-- Content --><!p class="subtitle"><!/p>
+        </div>
+      </div>
+     </article>
+    </div>
+    
+    <div class="tile is-parent is-vertical">
+     <article class="tile is-child notification is-warning">
+      <div class="content">
+        <p class="title">Речi</p>
+        <p class="subtitle">With even more content.With even more content</p>
+        <figure class="image is-4by4">
+        <%= link_to image_tag("thing.jpg",:size => "740x580", class:"button is-thing"),things_path%>
+        <!%= link_to article_path(article),class: "button is-thing"%>
+        <div class="content">
+          <!-- Content -->
+        </div>
+      </div>
+     </article>
+    </div>
+</div>
+
+<br>
+<br>

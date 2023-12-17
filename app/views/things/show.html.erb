@@ -1,0 +1,71 @@
+<br>
+<!3 Wywodim bazu po ID>
+<h3>Thanks You!</h3>
+<h4>Article has been created!!!</h4>
+
+ <p> Область: <%= @thing.local.title%></p>
+ 
+ <h4><%= @thing.title %></h4>
+ 
+ <%= image_tag @thing.image, style: "width: 380px; height: auto"%>
+ 
+ <p class="lead my-3"><%= @thing.text %></p>
+  
+             
+             <! Podkluchenie time pod soobzheniem!>
+  <time datetime="<%= @thing.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
+  <%= @thing.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  </time>  
+<%= link_to ('Edit'), edit_thing_path(@thing),class: "button is-success is-light"%> 
+<%= link_to ('Delete'), thing_path(@thing), data: {'turbo-method': :delete,'turbo-confirm': 
+     'Are you sure?'}, class:"button is-danger is-light"%>
+
+<!/////////////////////////////////////////////////////////////////////////////////////////>
+  <hr class="my-3">
+<h4> Write youre Comment </h4>
+  
+                      <!Dobawil Comment>
+  <%= form_with model: [@commentable, @comment] do |f| %>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :body %>
+    </div>
+
+    <div class="col-sm-10">                     <! Walidacija CSS ---required: true, minlength:2,>
+      <%= f.text_area :body, class: 'textarea is-focused', required: true, minlength:2%>
+    </div>
+  </div>
+
+  <%= f.submit "Submit comment!", class: 'button is-primary is-rounded' %>
+  <%= link_to "Show all articles!",things_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
+ <br>
+<% end %>
+<!%end%>
+
+<!/////////////////////////////////////////////////////////////////////////////////////>
+<h4 class="mt-5">Comment!</h4>
+
+<% @commentable.comments.each do |comment| %>
+  <article class="mb-3 card" id="comment-<%= comment.id %>">
+      <div class="card-body">
+           <! Podkluchenie time pod soobzheniem!>
+  <time datetime="<%= @thing.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
+  <%= @thing.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  </time>  
+         
+         <section class="card-text">
+                  <p>
+                    <%= comment.body %>
+                  </p>
+         </section>
+              
+ 
+ <%= link_to  "Edit Comment", edit_thing_comment_path(@thing, comment),class: "button is-success is-light"%> 
+ <%= link_to 'Delete', thing_comment_path(@thing, comment), class: 'button is-danger is-light',
+      data: {method: :delete, confirm: "Are you sure?"} %>
+   </div>
+ </article>
+<%end%>
+<br>
+<br>

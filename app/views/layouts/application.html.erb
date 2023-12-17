@@ -7,10 +7,131 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "custom", "data-turbo-track": "reload" %> <!Custom CSS>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
+
+<div class="container mt-3">
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://www.nenashev.eu">
+      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+  
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start"> 
+      <div class="navbar-item">
+        <div class="buttons"> 
+         
+      <a class="navbar-item">
+       <%= link_to "Головна", root_path, class:"button is-primary"%> 
+      </a>
+      <!a class="navbar-item">
+      <!%= link_to "All Articles", articles_path, class:"button is-light"%>
+      <!/a>
+      
+      <div class="navbar-item has-dropdown is-hoverable button is-light">
+        <a class="navbar-link is-primary">
+          Бiльше
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            About
+          </a>
+          <a class="navbar-item">
+            Jobs
+          </a>
+          <a class="navbar-item">
+            Contact
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Report an issue
+          </a>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Зареєструватися</strong>
+          </a>
+          <a class="button is-light">
+            Увiйти
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  
 
   <body>
     <%= yield %>
   </body>
+
+<!/div>
+<section class="tile is-child notification is-success">
+  <div class="hero-body">
+    <p class="title">
+      Info hero
+    </p>
+    <p class="subtitle">
+      Info subtitle
+    </p>
+  <nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="#">
+        <span class="icon is-small">
+          <i class="fas fa-home" aria-hidden="true"></i>
+        </span>
+        <span><%= link_to "Bulma",articles_path %></span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span class="icon is-small">
+          <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        <span>Documentation</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span class="icon is-small">
+          <i class="fas fa-puzzle-piece" aria-hidden="true"></i>
+        </span>
+        <span>Components</span>
+      </a>
+    </li>
+    <li class="is-active">
+      <a href="#">
+        <span class="icon is-small">
+          <i class="fas fa-thumbs-up" aria-hidden="true"></i>
+        </span>
+        <span>Breadcrumb</span>
+      </a>
+    </li>
+  </ul>
+  
+  </nav>
+ </div>
+</section>
+
+</div>
 </html>

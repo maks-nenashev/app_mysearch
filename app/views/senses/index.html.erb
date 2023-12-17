@@ -21,10 +21,11 @@
     <%#= sort_link(@q, :local_title, default_order: :asc)%>
 <br>
 <br>    
-
+<br>
 <p>
 <strong><%= link_to "Нове оголошення!", new_sense_path,class: "button is-warning is-rounded"%></strong>
 </p>
+<br>
 <% @senses.each do |sense| %>
      <article class="card mt-3">
      <div class="card-body">
@@ -58,4 +59,8 @@
 <% end %>
 <br>
 <br>
+<%= pagy_bulma_nav(@pagy).html_safe %>  <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>    
+<br>
+<br>
+ 
  

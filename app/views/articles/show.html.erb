@@ -19,7 +19,7 @@
 <%= link_to ('Edit'), edit_article_path(@article),class: "button is-success is-light"%> 
 <%= link_to ('Delete'), article_path(@article), data: {'turbo-method': :delete,'turbo-confirm': 
      'Are you sure?'}, class:"button is-danger is-light"%>
-
+<%= link_to "Показати всi оголошення!",articles_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
 <!/////////////////////////////////////////////////////////////////////////////////////////>
   <hr class="my-3">
 <h4> Write youre Comment </h4>

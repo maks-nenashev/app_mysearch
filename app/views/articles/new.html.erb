@@ -19,7 +19,7 @@
 <div class="field">
   <label class="label">Заголовок</label>
   <div class="control">        
-    <%= f.text_field :title, class: "input is-link" %>
+    <%= f.text_field :title, placeholder: "Напишить заголовок оголошення", class: "input is-link" %>
   </div>
   </div>
 
@@ -27,7 +27,7 @@
 <div class="field">
   <label class="label">Текст</label>
   <div class="control">
-    <%= f.text_area :text, class: "textarea is-focused" %>
+    <%= f.text_area :text, placeholder: "Напишить текст", class: "textarea is-focused" %>
   </div>
 </div>
 
@@ -36,7 +36,7 @@
     <%= f.file_field :image, class: "button is-warning"%>
   </div>
 <br>
-  
+  <!%= submit_tag 'Создати оголошення', class: "button big gray bi bi-pencil-square"%>
   <%= submit_tag 'Создати оголошення', class: "button is-primary is-rounded"%>
   <%= link_to "Показати усi оголошення!",articles_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
 

@@ -4,10 +4,10 @@ class ArticlesController < ApplicationController
                                                                
     
     def index   # 4: Wywod wsech zapisej!
-       @articles = Article.all
+       #@articles = Article.all
        @locals = Local.all
        @q = Article.ransack(params[:q])
-       @articles = @q.result(distinct: true)
+       @pagy,@articles = pagy @q.result(distinct: true),page: params[:page], items:5
       end
     
    def show  # 3: Wywodim bazu po :ID

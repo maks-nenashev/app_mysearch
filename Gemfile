@@ -47,7 +47,7 @@ group :development do
   gem "web-console"
   gem 'carrierwave', '>= 3.0.0.beta', '< 4.0'
   gem 'ransack'# Collection filtering and sorting
-  gem "mixitup-rails" # Sorting JS
+  gem 'pagy','~> 6.0.2'
 end
 
 group :test do

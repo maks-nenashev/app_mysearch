@@ -2,10 +2,10 @@ class ThingsController < ApplicationController
     before_action :set_thing!, only: %i[show destroy edit update]  # @article = Article.find params[:id]   "Refactoring"
                                                                
     def index  
-        @things = Thing.all
+        #@things = Thing.all
         @locals = Local.all
         @q = Thing.ransack(params[:q])
-        @things = @q.result(distinct: true)
+        @pagy,@things = pagy @q.result(distinct: true),page: params[:page], items:5
       end
      
     def show  

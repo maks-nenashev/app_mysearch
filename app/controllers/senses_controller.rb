@@ -2,10 +2,10 @@ class SensesController < ApplicationController
     before_action :set_sense!, only: %i[show destroy edit update]  # @article = Article.find params[:id]   "Refactoring"
                                                                
     def index   # 4: Wywod wsech zapisej!
-        @senses = Sense.all
+        #@senses = Sense.all
         @locals = Local.all
         @q = Sense.ransack(params[:q])
-        @senses = @q.result(distinct: true)
+        @pagy,@senses = pagy @q.result(distinct: true),page: params[:page], items:5
      end
      
     def show  # 3: Wywodim bazu po :ID

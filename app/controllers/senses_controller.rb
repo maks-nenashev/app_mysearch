@@ -5,7 +5,7 @@ class SensesController < ApplicationController
         #@senses = Sense.all
         @locals = Local.all
         @q = Sense.ransack(params[:q])
-        @pagy,@senses = pagy @q.result(distinct: true),page: params[:page], items:3
+        @pagy,@senses = pagy @q.result(distinct: true),page: params[:page], items:9
      end
      
     def show  # 3: Wywodim bazu po :ID

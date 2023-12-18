@@ -5,6 +5,9 @@
 
  <p> Область: <%= @sense.local.title%></p>
  
+  <figure class="image is-48x48">
+   <img src="https://bulma.io/images/placeholders/48x48.png">
+  </figure>
  <h4><%= @sense.title %></h4>
  
  <%= image_tag @sense.image, style: "width: 380px; height: auto" %>
@@ -16,9 +19,10 @@
   <time datetime="<%= @sense.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
   <%= @sense.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
   </time>  
-<%= link_to ('Edit'), edit_sense_path(@sense),class: "button is-success is-light"%> 
-<%= link_to ('Delete'), sense_path(@sense), data: {'turbo-method': :delete,'turbo-confirm': 
+<%= link_to ('Редагувати'), edit_sense_path(@sense),class: "button is-success is-light"%> 
+<%= link_to ('Видалити'), sense_path(@sense), data: {'turbo-method': :delete,'turbo-confirm': 
      'Are you sure?'}, class:"button is-danger is-light"%>
+<%= link_to "Показати всi оголошення!",sense_path, class:"button is-danger is-inverted" %> 
 
 <!/////////////////////////////////////////////////////////////////////////////////////////>
   <hr class="my-3">
@@ -60,9 +64,10 @@
          </section>
               
  
- <%= link_to  "Edit Comment", edit_sense_comment_path(@sense, comment),class: "button is-success is-light"%> 
- <%= link_to 'Delete', sense_comment_path(@sense, comment), class: 'button is-danger is-light',
+ <%= link_to  "Редагувати", edit_sense_comment_path(@sense, comment),class: "button is-success is-light"%> 
+ <%= link_to 'Видалити', sense_comment_path(@sense, comment), class: 'button is-danger is-light',
       data: {method: :delete, confirm: "Are you sure?"} %>
+   
    </div>
  </article>
 <%end%>

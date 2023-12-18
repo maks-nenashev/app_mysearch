@@ -4,7 +4,10 @@
 <h4>Article has been created!!!</h4>
 
  <p> Область: <%= @thing.local.title%></p>
- 
+  
+  <figure class="image is-48x48">
+   <img src="https://bulma.io/images/placeholders/48x48.png">
+  </figure>
  <h4><%= @thing.title %></h4>
  
  <%= image_tag @thing.image, style: "width: 380px; height: auto"%>
@@ -16,21 +19,32 @@
   <time datetime="<%= @thing.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
   <%= @thing.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
   </time>  
-<%= link_to ('Edit'), edit_thing_path(@thing),class: "button is-success is-light"%> 
-<%= link_to ('Delete'), thing_path(@thing), data: {'turbo-method': :delete,'turbo-confirm': 
+<%= link_to ('Редагувати'), edit_thing_path(@thing),class: "button is-success is-light"%> 
+<%= link_to ('Видалити'), thing_path(@thing), data: {'turbo-method': :delete,'turbo-confirm': 
      'Are you sure?'}, class:"button is-danger is-light"%>
+<%= link_to "Показати всi оголошення!",things_path, class:"button is-danger is-inverted" %> 
 
 <!/////////////////////////////////////////////////////////////////////////////////////////>
   <hr class="my-3">
 <h4> Write youre Comment </h4>
   
                       <!Dobawil Comment>
-  <%= form_with model: [@commentable, @comment] do |f| %>
+  <div class="dropdown is-active">
+   <div class="dropdown-trigger">
+    <button class="button is-primary is-rounded" aria-haspopup="true" aria-controls="dropdown-menu">
+    
+             <%= t('.Create Topic')%>
+    </button>
+     <!/div>                <!Dropdown Topic>
+  
 
-  <div class="mb-3 row">
+  <%= form_with model: [@commentable, @comment] do |f| %>
+    
+    <div class="mb-3 row">
     <div class="col-sm-2 col-form-label">
       <%= f.label :body %>
     </div>
+  
 
     <div class="col-sm-10">                     <! Walidacija CSS ---required: true, minlength:2,>
       <%= f.text_area :body, class: 'textarea is-focused', required: true, minlength:2%>
@@ -40,9 +54,9 @@
   <%= f.submit "Submit comment!", class: 'button is-primary is-rounded' %>
   <%= link_to "Show all articles!",things_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
  <br>
-<% end %>
-<!%end%>
-
+  <% end %>
+</div>
+</div>
 <!/////////////////////////////////////////////////////////////////////////////////////>
 <h4 class="mt-5">Comment!</h4>
 
@@ -61,9 +75,10 @@
          </section>
               
  
- <%= link_to  "Edit Comment", edit_thing_comment_path(@thing, comment),class: "button is-success is-light"%> 
- <%= link_to 'Delete', thing_comment_path(@thing, comment), class: 'button is-danger is-light',
+ <%= link_to "Редагувати", edit_thing_comment_path(@thing, comment),class: "button is-success is-light"%> 
+ <%= link_to 'Видалити', thing_comment_path(@thing, comment), class: 'button is-danger is-light',
       data: {method: :delete, confirm: "Are you sure?"} %>
+ 
    </div>
  </article>
 <%end%>

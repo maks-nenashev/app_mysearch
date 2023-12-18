@@ -5,9 +5,9 @@
 <div class="field is-link">
   <p class="control has-icons-left">
     <span class="select">
-         
+    
 <%= select(:article,:local_id, options_from_collection_for_select(@locals, "id","title", @article.present? ? @article.local_id : nil ), {}) %>
-       
+      
     </span>
     <span class="icon is-small is-left">
       <i class="fas fa-globe"></i>
@@ -36,7 +36,7 @@
     <%= f.file_field :image, class: "button is-warning"%>
   </div>
 <br>
-  <!%= submit_tag 'Создати оголошення', class: "button big gray bi bi-pencil-square"%>
+  <%= submit_tag 'Создати оголошення', class: "button big gray bi bi-pencil-square"%>
   <%= submit_tag 'Создати оголошення', class: "button is-primary is-rounded"%>
   <%= link_to "Показати усi оголошення!",articles_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
 

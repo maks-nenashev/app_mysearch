@@ -8,7 +8,7 @@
           <%= search_form_for @q do |f| %>
           <%= f.select :local_id_eq, @locals.map { |t| [t.title, t.id] }, required: false , class:"input" %>
       
-     <!br>
+     <br>
      <div class="buttons are-small"> 
      <%= f.submit "Шукати!", class:"button is-primary"%>
     <% end %>
@@ -21,18 +21,23 @@
     <%#= sort_link(@q, :local_title, default_order: :asc)%>
 <br>
 <br>    
-
+<br>
 <p>
 <strong><%= link_to "Нове оголошення!", new_thing_path,class: "button is-warning is-rounded"%></strong>
 </p>
+<br>
 <% @things.each do |thing| %>
      <article class="card mt-3">
      <div class="card-body">
-  <h2>
-  <%= thing.title %>
-  </h2>
+  
+  <figure class="image is-48x48">
+  <img src="https://bulma.io/images/placeholders/48x48.png">
+  </figure>
+  
+  <h3 class="subtitle  is-3"> <%= thing.title %></h3>
+  
   <p class="my-2">
-  <%= image_tag thing.image, style: "width: 360px; height: auto"%>            
+  <%= image_tag thing.image, class: "image"%>            
   </p>          
   <h4 class="my-2">
   <%= thing.text %>

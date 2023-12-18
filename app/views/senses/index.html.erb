@@ -8,7 +8,7 @@
           <%= search_form_for @q do |f| %>
           <%= f.select :local_id_eq, @locals.map { |t| [t.title, t.id] }, required: false , class:"input" %>
       
-     <!br>
+     <br>
      <div class="buttons are-small"> 
      <%= f.submit "Шукати!", class:"button is-primary"%>
     <% end %>
@@ -29,9 +29,14 @@
 <% @senses.each do |sense| %>
      <article class="card mt-3">
      <div class="card-body">
-  <h2>
-  <%= sense.title %>
-  </h2>
+  
+  <figure class="image is-48x48">
+  <img src="https://bulma.io/images/placeholders/48x48.png">
+  </figure>
+  
+  <!h2>
+  <h3 class="subtitle  is-3"> <%= sense.title %></h3>
+  <!/h2>
   <p class="my-2">
   <%= image_tag sense.image, style: "width: 360px; height: auto" %>            
   </p>          

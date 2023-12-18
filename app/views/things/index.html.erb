@@ -15,9 +15,10 @@
   </div>
    </div>
     </div>
+      <br>
     <%= link_to "Показати всi оголошення!", things_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
-  <!/div>
-</div>
+  </div>
+<!/div>
     <%#= sort_link(@q, :local_title, default_order: :asc)%>
 <br>
 <br>    
@@ -31,12 +32,12 @@
   <% @things.each do |thing| %>
   
    <div class="column is-one-third">
-     <h3 class="subtitle  is-3"> <%= thing.title %></h3>
      <div class="card">
             <% if thing.image.attached?%>
               <div class="card-image">
+                <h3 class="subtitle  is-4"> <%= thing.title %></h3>
                 <!figure class="image is-4by3">
-                <%= image_tag thing.image, class: "card-img-top", style: "width: 360px; height: 240px;"%> 
+                <%= link_to image_tag(thing.image, class: "card-img-top", style: "width: 360px; height: 240px;"),thing_path(thing)%> 
                 <!/figure>
               </div>
             <%end%>
@@ -59,15 +60,15 @@
                 <!h3 class="subtitle  is-3"> <%#= thing.title %></h3>
                 <%= thing.text %>
                 <br>
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+               <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
              </div>
             </div>
-          <footer class="card-footer">
-           <%= link_to  "Показати", thing_path(thing),class: "button is-primary is-light"%>  
-           <%= link_to  "Редагувати", edit_thing_path(thing),class: "button is-success is-light"%> 
-           <%= link_to 'Видалити', thing_path(thing), data: {'turbo-method': :delete,'turbo-confirm': 
+          <!footer class="card-footer">
+           <%#= link_to  "Показати", thing_path(thing),class: "button is-primary is-light"%>  
+           <%#= link_to  "Редагувати", edit_thing_path(thing),class: "button is-success is-light"%> 
+           <%#= link_to 'Видалити', thing_path(thing), data: {'turbo-method': :delete,'turbo-confirm': 
              'Are you sure?'}, class:"button is-danger is-light"%>
-          </footer>                 
+          <!/footer>                 
      </div>
     </div>
    <!/div>

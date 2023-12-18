@@ -26,41 +26,35 @@
 <strong><%= link_to "Нове оголошення!", new_thing_path,class: "button is-warning is-rounded"%></strong>
 </p>
 <br>
-<% @things.each do |thing| %>
-     <article class="card mt-3">
-     <div class="card-body">
+<br>
+<div class="columns is-multiline">
+  <% @things.each do |thing| %>
   
-  <figure class="image is-48x48">
-  <img src="https://bulma.io/images/placeholders/48x48.png">
-  </figure>
-  
-  <h3 class="subtitle  is-3"> <%= thing.title %></h3>
-  
-  <p class="my-2">
-  <%= image_tag thing.image, class: "image"%>            
-  </p>          
-  <h4 class="my-2">
-  <%= thing.text %>
-  </h4>
-        <section class="card-text">
-           <! Podkluchenie time pod soobzheniem!>
-  <time datetime="<%= thing.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
-  <%= thing.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-  </time>  
-           </section>            
-   <!hr>
-                     <!Ssylka na statью>
-     <%= link_to  "Show article", thing_path(thing),class: "button is-primary is-light"%>  
-     <%= link_to  "Edit article", edit_thing_path(thing),class: "button is-success is-light"%> 
-     <%= link_to 'Delete', thing_path(thing), data: {'turbo-method': :delete,'turbo-confirm': 
-     'Are you sure?'}, class:"button is-danger is-light"%>
-                    
-                       <! rails routes>                         <!Eto JS window "Udalit post">
-  
-            
+   <div class="column is-one-third">
+     <div class="card">
+            <% if thing.image.attached?%>
+              <div class="card-image">
+                <%= image_tag thing.image, class: "card-img-top", style: "width: 360px; height: 240px;"%> 
+              </div>
+            <%end%>
+            <div class="card-content">
+             <div class="content">
+                <h3 class="subtitle  is-3"> <%= thing.title %></h3>
+                <h4 class="my-2">
+                <%= thing.text %>
+                </h4>
+             </div>
+            </div>
+          <footer class="card-footer">
+           <%= link_to  "Показати", thing_path(thing),class: "button is-primary is-light"%>  
+           <%= link_to  "Редагувати", edit_thing_path(thing),class: "button is-success is-light"%> 
+           <%= link_to 'Видалити', thing_path(thing), data: {'turbo-method': :delete,'turbo-confirm': 
+             'Are you sure?'}, class:"button is-danger is-light"%>
+          </footer>                 
      </div>
-   </article>
-<% end %>
+    </div>
+  <% end %>
+</div>
 <br>
 <br>
 <%= pagy_bulma_nav(@pagy).html_safe %>  <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>    

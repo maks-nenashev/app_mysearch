@@ -18,14 +18,14 @@
  <div class="field">
   <label class="label">Заголовок</label>
    <div class="control">      
-    <%= f.text_field :title, class: "input is-link" %>
+    <%= f.text_field :title, placeholder: "Напишить заголовок оголошення", class: "input is-link" %>
   </div>
   </div>
 
  <div class="field">
   <label class="label">Текст</label>
    <div class="control">   
-    <%= f.text_area :text, class: "textarea is-focused" %>
+    <%= f.text_area :text, placeholder: "Напишить текст", class: "textarea is-focused" %>
   </div>
   </div>
 
@@ -35,8 +35,8 @@
   </div>
 <br>
   
-  <%= submit_tag 'Submit article', class: "button is-primary is-rounded"%>
-  <%= link_to "Show all articles!",things_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
+  <%= submit_tag 'Создати оголошення', class: "button is-primary is-rounded"%>
+  <%= link_to "Показати усi оголошення!",things_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
   <%#= link_to "Show all articles!",things_path, class:"button big bi bi-pencil-square" %> <!Prawelnaja ssylka>
 
 <%end%>

@@ -5,7 +5,7 @@ class ThingsController < ApplicationController
         #@things = Thing.all
         @locals = Local.all
         @q = Thing.ransack(params[:q])
-        @pagy,@things = pagy @q.result(distinct: true),page: params[:page], items:5
+        @pagy,@things = pagy @q.result(distinct: true),page: params[:page], items:9
       end
      
     def show  

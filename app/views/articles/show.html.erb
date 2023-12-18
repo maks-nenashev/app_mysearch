@@ -5,9 +5,14 @@
 
  <p> Область: <%= @article.local.title%></p>
  
+ <figure class="image is-48x48">
+  <img src="https://bulma.io/images/placeholders/48x48.png">
+  </figure>
  <h4><%= @article.title %></h4>
  
- <%= image_tag @article.image, style: "width: 380px; height: auto"%>
+   <div class="card-image">
+     <%= image_tag @article.image, style: "width: 380px; height: auto"%>
+   <div>
  
  <p class="lead my-3"><%= @article.text %></p>
   
@@ -16,8 +21,8 @@
   <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
   <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
   </time>  
-<%= link_to ('Edit'), edit_article_path(@article),class: "button is-success is-light"%> 
-<%= link_to ('Delete'), article_path(@article), data: {'turbo-method': :delete,'turbo-confirm': 
+<%= link_to ('Редагувати'), edit_article_path(@article),class: "button is-success is-light"%> 
+<%= link_to ('Видалити'), article_path(@article), data: {'turbo-method': :delete,'turbo-confirm': 
      'Are you sure?'}, class:"button is-danger is-light"%>
 <%= link_to "Показати всi оголошення!",articles_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
 <!/////////////////////////////////////////////////////////////////////////////////////////>
@@ -60,8 +65,8 @@
          </section>
               
  
- <%= link_to  "Edit Comment", edit_article_comment_path(@article,comment),class: "button is-success is-light"%> 
- <%= link_to 'Delete', article_comment_path(@article, comment), class: 'button is-danger is-light',
+ <%= link_to  "Редагувати", edit_article_comment_path(@article,comment),class: "button is-success is-light"%> 
+ <%= link_to 'Видалити', article_comment_path(@article, comment), class: 'button is-danger is-light',
       data: {method: :delete, confirm: "Are you sure?"} %>
    </div>
  </article>

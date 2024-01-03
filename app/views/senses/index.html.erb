@@ -35,7 +35,7 @@
      <div class="card">
             <% if sense.image.attached?%>
               <div class="card-image">
-                <%= image_tag sense.image, class: "card-img-top", style: "width: 360px; height: 240px;"%> 
+                <%= link_to image_tag(sense.image, class: "card-img-top", style: "width: 360px; height: 240px;"),sense_path(sense)%> 
               </div>
             <%end%>
             <div class="card-content">

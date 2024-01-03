@@ -8,7 +8,8 @@
   <figure class="image is-48x48">
    <img src="https://bulma.io/images/placeholders/48x48.png">
   </figure>
- <h4><%= @thing.title %></h4>
+ <br>
+ <h3 class="subtitle  is-4"> <%= @thing.title %></h3>
  
  <%= image_tag @thing.image, style: "width: 380px; height: auto"%>
  
@@ -26,18 +27,18 @@
 
 <!/////////////////////////////////////////////////////////////////////////////////////////>
   <hr class="my-3">
-<h4> Write youre Comment </h4>
+
   
                       <!Dobawil Comment>
-  <div class="dropdown is-active">
+  <div class="dropdown is-hoverable">
    <div class="dropdown-trigger">
-    <button class="button is-primary is-rounded" aria-haspopup="true" aria-controls="dropdown-menu">
+    <button class="button is-primary is-rounded" aria-haspopup="true" aria-controls="dropdown">
     
-             <%= t('.Create Topic')%>
+             <%= "Коментувати"%>
     </button>
      <!/div>                <!Dropdown Topic>
   
-
+<ul class="dropdown-menu" data: {'bs-toggle': 'collapse'}>
   <%= form_with model: [@commentable, @comment] do |f| %>
     
     <div class="mb-3 row">
@@ -51,11 +52,12 @@
     </div>
   </div>
 
-  <%= f.submit "Submit comment!", class: 'button is-primary is-rounded' %>
-  <%= link_to "Show all articles!",things_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
+  <%= f.submit "Коментувати!", class: 'button is-primary is-rounded' %>
+  <%#= link_to "Show all articles!",things_path, class:"button is-danger is-inverted" %> <!Prawelnaja ssylka>
  <br>
   <% end %>
-</div>
+    </ul>
+ </div>
 </div>
 <!/////////////////////////////////////////////////////////////////////////////////////>
 <h4 class="mt-5">Comment!</h4>

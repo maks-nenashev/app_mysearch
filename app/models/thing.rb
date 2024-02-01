@@ -6,8 +6,12 @@ class Thing < ApplicationRecord
 
    belongs_to :local
   
+   validates :title, presence: true, length: {minimum: 3} #walidacija
+   validates :text, presence: true, length: {minimum: 3}
+
+
   def self.ransackable_attributes(auth_object = nil)
-    ["avatar", "created_at", "id", "local_id", "text", "title", "updated_at"]
+    ["image", "created_at", "id", "local_id", "text", "title", "updated_at"]
     end
   def self.ransackable_associations(auth_object = nil)
     ["comments", "local"]
